@@ -74,11 +74,11 @@ go build -o url-shortener ./cmd && ./url-shortener
 - POST /api/v1/url/register
     - Registers a new short URL.
     - Cached for 30s and protected by a rate limiter.
-    - Example request payload (example; see internal/handlers/RegisterURLHandler for exact contract):
+    - Example request payload:
         ```sh
         curl -X POST http://localhost:8080/api/v1/url/register \
             -H "Content-Type: application/json" \
-            -d '{"url":"https://example.com"}'
+            -d '{"target_path":"https://example.com"}'
         ```
     - Example response:
         ```json
