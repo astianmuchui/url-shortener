@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitsy — URL Shortener</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Satoshi:wght@400;500;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+
+  <body>
+
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+
+    <div class="wrapper">
+
+      <div class="brand">
+        <h1>B<em>i</em>tsy</h1>
+        <p>Shorten any URL in one click</p>
+      </div>
+
+      <div class="card">
+        <label for="urlInput">Paste your long URL</label>
+        <div class="input-row">
+          <input type="url" id="urlInput" placeholder="https://example.com/very/long/path..." autocomplete="off"
+            spellcheck="false" />
+          <button class="shorten-btn" id="shortenBtn" onclick="shortenURL()">
+            Shorten
+          </button>
+        </div>
+        <div class="error-msg" id="errorMsg"></div>
+      </div>
+
+      <div class="result" id="resultPanel">
+        <div>
+          <div class="result-label">Shortened URL</div>
+          <div class="result-url-row">
+            <div class="result-url">
+              <a href="#" id="shortLink" target="_blank" rel="noopener"></a>
+            </div>
+            <button class="copy-btn" id="copyBtn" onclick="copyURL()">Copy</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div>
+          <div class="result-label">Original</div>
+          <div class="target-path" id="targetPath"></div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <script src="/assets/js/app.js"></script>
+  </body>
+
+</html>

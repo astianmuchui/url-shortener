@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/gofiber/template/django/v3"
 
 	"github.com/astianmuchui/url-shortener/internal/env"
 	"github.com/astianmuchui/url-shortener/internal/router"
@@ -19,11 +20,16 @@ func init() {
 }
 
 func main() {
-
+	engine := django.New("./internal/templates", ".django")
 	app := fiber.New(fiber.Config{
 		AppName: "URL Shortener Service",
 		Prefork: true,
+		Views: engine,
 	})
+
+	app.Static("/assets", "./assets")
+	app.Static("/binaries", "./binaries")
+
 
 	app.Use(logger.New())
 	app.Use(recover.New())

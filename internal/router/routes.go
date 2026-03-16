@@ -3,13 +3,18 @@ package router
 import (
 	"time"
 
-	"github.com/astianmuchui/url-shortener/internal/handlers"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
+
+	"github.com/astianmuchui/url-shortener/internal/handlers"
 )
 
 func Begin(app *fiber.App) {
+
+	app.Get("/", func (c *fiber.Ctx) error  {
+		return c.Render("index", fiber.Map{})
+	})
 
 	app.Get("/:code", handlers.HomeHandler)
 	app.Route("/api/v1", func(router fiber.Router) {
